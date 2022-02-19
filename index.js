@@ -1,90 +1,90 @@
-const Validator = (obj) => {
+const Validator = (key, value) => {
   const isString = () => {
-    if (typeof obj.value !== "string") {
-      throw { message: `${obj.key} is not string!` };
+    if (typeof value !== "string") {
+      throw { message: `${key} is not string!` };
     }
-    return Validator(obj);
+    return Validator(key, value);
   };
 
   const isNumber = () => {
-    if (typeof obj.value !== "number") {
-      throw { message: `${obj.key} is not a number!` };
+    if (typeof value !== "number") {
+      throw { message: `${key} is not a number!` };
     }
-    return Validator(obj);
+    return Validator(key, value);
   };
 
   const minNumber = (minNumber) => {
-    if (typeof obj.value === "number" && obj.value < minNumber) {
-      throw { message: `${obj.key} is less than ${minNumber}!` };
+    if (typeof value === "number" && value < minNumber) {
+      throw { message: `${key} is less than ${minNumber}!` };
     }
-    return Validator(obj);
+    return Validator(key, value);
   };
 
   const maxNumber = (maxNumber) => {
-    if (typeof obj.value === "number" && obj.value > maxNumber) {
-      throw { message: `${obj.key} is less than ${maxNumber}!` };
+    if (typeof value === "number" && value > maxNumber) {
+      throw { message: `${key} is less than ${maxNumber}!` };
     }
-    return Validator(obj);
+    return Validator(key, value);
   };
 
   const isArray = () => {
-    if (!Array.isArray(obj.value)) {
-      throw { message: `${obj.key} is not an array!` };
+    if (!Array.isArray(value)) {
+      throw { message: `${key} is not an array!` };
     }
-    return Validator(obj);
+    return Validator(key, value);
   };
 
   const isObject = () => {
-    if (typeof obj.value !== "object") {
-      throw { message: `${obj.key} is not an object!` };
+    if (typeof value !== "object") {
+      throw { message: `${key} is not an object!` };
     } else {
-      if (obj.value === null || Array.isArray(obj.value)) {
-        throw { message: `${obj.key} is not an object!` };
+      if (value === null || Array.isArray(value)) {
+        throw { message: `${key} is not an object!` };
       }
     }
-    return Validator(obj);
+    return Validator(key, value);
   };
 
   const required = () => {
-    if (obj.value === "" || obj.value === null || obj.value === undefined) {
-      throw { message: `${obj.key} is required!` };
+    if (value === "" || value === null || value === undefined) {
+      throw { message: `${key} is required!` };
     }
-    return Validator(obj);
+    return Validator(key, value);
   };
 
   const minLength = (minLength) => {
     if (typeof minLength === "number") {
-      if (typeof obj.value === "string" && obj.value.length < minLength) {
-        throw { message: `${obj.key} is smaller than it's minLength!` };
+      if (typeof value === "string" && value.length < minLength) {
+        throw { message: `${key} is smaller than it's minLength!` };
       }
     }
-    return Validator(obj);
+    return Validator(key, value);
   };
 
   const maxLength = (maxLength) => {
     if (typeof maxLength === "number") {
-      if (typeof obj.value === "string" && obj.value.length > maxLength) {
-        throw { message: `${obj.key} is greater than it's maxLength!` };
+      if (typeof value === "string" && value.length > maxLength) {
+        throw { message: `${key} is greater than it's maxLength!` };
       }
     }
-    return Validator(obj);
+    return Validator(key, value);
   };
 
   const isEmail = () => {
     const isValidEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
-      obj.value
+      value
     );
     if (!isValidEmail) {
-      throw { message: `${obj.key} is not valid email address!` };
+      throw { message: `${key} is not valid email address!` };
     }
-    return Validator(obj);
+    return Validator(key, value);
   };
 
   const notNull = () => {
-    if (obj.value === null) {
-      throw { message: `${obj.key} should not be null!` };
+    if (value === null) {
+      throw { message: `${key} should not be null!` };
     }
-    return Validator(obj);
+    return Validator(key, value);
   };
 
   const isPassword = () => {
@@ -104,15 +104,15 @@ const Validator = (obj) => {
     // "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$"
 
     const isValidPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(
-      obj.value
+      value
     );
 
     if (!isValidPassword) {
       throw {
-        message: `${obj.key} is not valid. it must have minimum eight characters, at least one letter and one number!`,
+        message: `${key} is not valid. it must have minimum eight characters, at least one letter and one number!`,
       };
     }
-    return Validator(obj);
+    return Validator(key, value);
   };
 
   return {
