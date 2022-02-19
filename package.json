@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/ibnshayed/express-single-value-validator/issues"
   },
-  "homepage": "https://github.com/ibnshayed/express-single-value-validator#readme"
+  "homepage": "https://github.com/ibnshayed/express-single-value-validator#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
