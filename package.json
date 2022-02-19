@@ -1,0 +1,24 @@
+{
+  "name": "express-single-value-validator",
+  "version": "1.0.0",
+  "description": "Validate any value with (key,value) pair like resquest body, params, query, headers etc in express.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibnshayed/express-single-value-validator.git"
+  },
+  "keywords": [
+    "express",
+    "validator",
+    "nodejs"
+  ],
+  "author": "Emran Ibn Shayed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ibnshayed/express-single-value-validator/issues"
+  },
+  "homepage": "https://github.com/ibnshayed/express-single-value-validator#readme"
+}
