@@ -55,7 +55,7 @@ const Validator = (key, value) => {
   const minLength = (minLength) => {
     if (typeof minLength === "number") {
       if (typeof value === "string" && value.length < minLength) {
-        throw { message: `${key} is smaller than it's minLength!` };
+        throw { message: `${key} is smaller than ${minLength} characters!` };
       }
     }
     return Validator(key, value);
@@ -64,7 +64,7 @@ const Validator = (key, value) => {
   const maxLength = (maxLength) => {
     if (typeof maxLength === "number") {
       if (typeof value === "string" && value.length > maxLength) {
-        throw { message: `${key} is greater than it's maxLength!` };
+        throw { message: `${key} is greater than ${maxLength} characters!` };
       }
     }
     return Validator(key, value);
@@ -75,7 +75,7 @@ const Validator = (key, value) => {
       value
     );
     if (!isValidEmail) {
-      throw { message: `${key} is not valid email address!` };
+      throw { message: `Invalid email address!` };
     }
     return Validator(key, value);
   };
