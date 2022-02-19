@@ -1,6 +1,6 @@
 {
   "name": "express-single-value-validator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Validate any value with (key,value) pair like resquest body, params, query, headers etc in express.",
   "main": "index.js",
   "scripts": {
