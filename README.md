@@ -17,7 +17,7 @@ const demoFunction = (req, res) => {
 			.minLength(3) // minimum length of string 3 characters
 			.maxLength(30) // maximum length of string 30 characters
 
-		Validator("username","ibnshayed")
+		Validator("username", "ibnshayed")
 			.isString()
 			.required()
 			.minLength(3)
@@ -27,7 +27,7 @@ const demoFunction = (req, res) => {
 			.isString()
 			.isEmail() // check a valid email address
 
-		Validator("password": "password1234")
+		Validator("password", "password1234")
 			.isString()
 			.required()
 			.isPassword() // Validate a password with minimum eight characters, at least one letter and one number
